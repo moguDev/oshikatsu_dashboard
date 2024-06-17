@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  oshi: MyString
+  start_date: 2024-06-15
+  end_date: 2024-06-15
+  locate: MyString
+  url: MyString
+  ticket: false
+  deposit: false
+  preparation: false
+  user_id: 1
+
+two:
+  title: MyString
+  oshi: MyString
+  start_date: 2024-06-15
+  end_date: 2024-06-15
+  locate: MyString
+  url: MyString
+  ticket: false
+  deposit: false
+  preparation: false
+  user_id: 1

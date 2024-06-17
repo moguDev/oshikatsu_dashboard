@@ -1,0 +1,28 @@
+<% content_for :title, "#{t('.title')} | #{t('app.title')}" %>
+<div class="container justiry-center w-full mx-auto p-5">
+  <div class="justiry-center w-1/2 mx-auto">
+  <div class="p-5 m-10 rounded-3xl border-2 border-pink-100">
+    <%= simple_format t('.title'), class: 'font-semibold text-pink-600 text-3xl m-2 p-2' %>
+    <%= render 'layouts/error', obj: @user %>
+    <%= form_with model: @user do |f| %>
+      <div class="divide-y divide-pink-200">
+        <div class="m-2 p-2">
+          <%= f.label :name, class: 'block p-2 text-xs text-gray-400 font-semibold'%>
+          <%= f.text_field :name, class: 'block rounded-2xl p-2 w-full border-none'%>
+        </div>
+        <div class="m-2 p-2">
+          <%= f.label :email, class: 'block p-2 text-xs text-gray-400 font-semibold'%>
+          <%= f.email_field :email, class: 'block rounded-2xl p-2 w-full border-none'%>
+        </div>
+        <div class="m-2 p-2">
+          <%= f.label :password, class: 'block p-2 text-xs text-gray-400 font-semibold'%>
+          <%= f.password_field :password, class: 'block rounded-2xl p-2 w-full border-none'%>
+          <%= f.label :password_confirmation, class: 'block p-2 text-xs text-gray-400 font-semibold'%>
+          <%= f.password_field :password_confirmation, class: 'block rounded-2xl p-2 w-full border-none'%>
+        </div>
+        <%= f.submit "登録", class: 'font-semibold w-full bg-pink-500 text-white rounded-2xl p-3 m-2 text-center hover:bg-pink-400 transition duration-300' %>
+      </div>
+    <% end %>
+  </div>
+  </div>
+</div>

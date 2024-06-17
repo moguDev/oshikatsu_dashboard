@@ -1,0 +1,12 @@
+<div class="w-screen p-5">
+  <div class="flex items-center justify-between p-1 mx-5 my-2 text-pink-600">
+    <%= simple_format t('.title'), class: "font-bold text-3xl"%>
+    <%= simple_format "#{@items.count.to_s}件", class: "font-semibold text-xl"%>
+  </div>
+  <div class="min-w-full grid grid-cols-2">
+    <%= render @items %>
+  </div>
+  <div class="flex items-center justify-center my-5">
+    <%= paginate @items %>
+  </div>
+</div>

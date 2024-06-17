@@ -1,0 +1,26 @@
+<% content_for :title, "#{t('.title')} | #{t('app.title')}" %>
+<div class="container justiry-center w-full mx-auto p-5">
+  <div class="justiry-center w-1/2 mx-auto">
+  <div class="p-5 m-10 rounded-3xl border-2 border-pink-100">
+    <%= simple_format t('.title'), class: 'font-semibold text-pink-600 text-3xl m-2 p-2' %>
+    <%= form_with url: signin_path do |f| %>
+      <div class="divide-y divide-pink-200">
+        <div class="m-2 p-2">
+          <%= f.label '*メールアドレス', class: 'block p-2 text-xs text-gray-400 font-semibold'%>
+          <%= f.email_field :email, class: 'block rounded-2xl p-2 w-full border-none'%>
+        </div>
+        <div class="m-2 p-2">
+          <%= f.label '*パスワード', class: 'block p-2 text-xs text-gray-400 font-semibold'%>
+          <%= f.password_field :password, class: 'block rounded-2xl p-2 w-full border-none'%>
+        </div>
+        <div class="font-semibold m-3 pt-2">
+          <%= f.submit t('.title'), class: 'w-full bg-pink-500 text-white rounded-xl p-3 mx-2 my-1 text-center hover:bg-pink-400 transition duration-300' %>
+          <%= link_to signup_path do %>
+            <%= simple_format t('.signup'), class: 'w-full text-pink-500 rounded-xl p-3 mx-2 my-1 text-center border-2 border-pink-500 hover:bg-cyan-100 transition duration-300' %>
+          <%end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+require jquery.datetimepicker
+
+* {
+  box-sizing: border-box;
+}
+
+.font-m-plus-1 {
+  font-family: "M PLUS 1", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}

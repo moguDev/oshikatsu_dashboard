@@ -1,0 +1,36 @@
+<!-- ヘッダー -->
+<header class="header fixed top-0 flex h-16 items-center w-full z-50 justify-between px-5 py-5 text-white border-b-5 border-pink-500 bg-pink-500 shadow-xl opacity-90">
+  <div class="flex items-center h-full">
+    <%= image_tag 'icon_white.png', class: "h-full rotate-3 object-cover mx-2" %>
+    <% if logged_in? %>
+      <%= link_to t('app.title'), dashboard_path, class: "text-2xl font-bold text-left" %>
+    <% else %>
+      <%= link_to t('app.title'), '/', class: "text-2xl font-bold text-left" %>
+    <% end%>
+  </div>
+  <div class="flex h-16 items-center justify-center">
+    <% unless logged_in? %>
+      <%= link_to signin_path, class: 'flex items-center h-full font-semibold px-4 hover:bg-pink-300' do %>
+        <i class="fa-solid fa-right-to-bracket mx-1"></i>
+        <%= simple_format 'サインイン' %>
+      <% end %>
+      <%= link_to signup_path, class: 'flex items-center h-full font-semibold px-4 hover:bg-pink-300' do %>
+        <i class="fa-solid fa-user-plus mx-1"></i>
+        <%= simple_format '新規登録' %>
+      <% end %>
+    <% else %>
+      <%= link_to new_item_path, class: 'flex items-center h-full font-semibold px-4 hover:bg-pink-300' do %>
+        <i class="fa-solid fa-plus mx-1"></i>
+        <%= simple_format '新しい推し活' %>
+      <% end %>
+      <%= link_to signout_path, class: 'flex items-center h-full font-semibold px-4 hover:bg-pink-300',  data: { turbo_method: :delete, turbo_confirm: "サインアウトしますか" } do %>
+        <i class="fa-solid fa-right-from-bracket mx-1"></i>
+        <%= simple_format 'サインアウト' %>
+      <% end %>
+    <% end %>
+    <%= link_to 'https://x.com/mogu_57B', class: 'flex items-center h-2/3 rounded-3xl bg-white text-pink-400 font-semibold mx-1 px-4 hover:bg-pink-100', target: :_blank do %>
+      <i class="fa-brands fa-x-twitter mr-1"></i>
+      <%= simple_format 'お問い合わせ' %>
+    <% end %>
+  </div>
+</header>

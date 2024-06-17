@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= t('app.title')%></title>
+    <%= favicon_link_tag('favicon.ico') %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0c79a8c44c.js" crossorigin="anonymous"></script>
+  </head>
+  <body class="h-screen min-w-max font-m-plus-1 bg-pink-50">
+    <main>
+      <%= render 'layouts/header' %>
+      <div class="pt-16 flex-glow">
+        <%= render 'layouts/flash_message' %>
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<div class="container justiry-center w-2/3 mx-auto p-5">
+  <%= simple_format t('.title'), class: "font-bold text-pink-600 text-3xl p-1 mx-5"%>
+  <%= render 'layouts/error', obj: @item %>
+  <%= form_with model: @item do |f| %>
+    <!-- 登録フォーム -->
+    <div class="border rounded-xl border-pink-100 bg-white mx-5 my-2 p-5">
+      <!-- ヘッダーメニュー -->
+      <div class="flex items-center text-sm">
+        <%= simple_format '公開設定：', class: "text-xs text-gray-400 font-semibold pl-3"%>
+        <div class="flex items-center font-semibold rounded-xl mr-2 py-1 text-white hover:cursor-pointer">
+          <%= f.radio_button :is_private, false, class: "mx-1 border border-gray-600 focus:outline-none focus:ring-0"%>
+          <%= simple_format 'SHARED（すべてのユーザーが閲覧できます）', class: "text-cyan-600"%>
+        </div>
+        <div class="flex items-center font-semibold rounded-xl ml-2 py-1 hover:cursor-pointer">
+          <%= f.radio_button :is_private, true, class: "mx-1 border border-gray-600 focus:outline-none focus:ring-0" %>
+          <%= simple_format 'PRIVATE（あなただけが閲覧できます）', class: "text-pink-600" %>
+        </div>
+      </div>
+      <!-- アイテム詳細 -->
+      <div class=" divide-y divide-pink-200">
+        <!-- 推し活名称 -->
+        <div class="pt-2 border-b-1 border-gray-200">
+          <%= f.text_field :title, class: "text-xl w-full font-semibold border-none focus:outline-none focus:ring-0" , placeholder: "推し活のタイトル" %>
+        </div>
+        <!-- 推しの名前 -->
+        <div class="pt-2 flex items-center">
+          <i class="fa-solid fa-heart px-2 text-gray-500"></i>
+          <%= f.text_field :oshi, class: "w-full border-none focus:outline-none focus:ring-0" , placeholder: "推しの名前" %>
+        </div>
+        <!-- 日時 -->
+        <div class="py-2 flex items-center">
+          <i class="fa-solid fa-calendar-days px-2 text-gray-500"></i>
+          <div class="flex items-center">
+            <%= f.date_field :start_date, class: "w-full border-none rounded-xl bg-gray-50 focus:outline-none focus:ring-0", placeholder: "開始日時"%>
+            <%= simple_format "〜", class: "px-3"%>
+            <%= f.date_field :end_date, class: "w-full border-none rounded-xl bg-gray-50 focus:outline-none focus:ring-0"%>
+          </div>
+        </div>
+        <!-- 場所 -->
+        <div class="py-2 flex items-center">
+          <i class="fa-solid fa-location-dot px-2 text-gray-500"></i>
+          <%= f.text_field :locate, class: "w-full border-none focus:outline-none focus:ring-0" , placeholder: "場所" %>
+        </div>
+        <!-- URL -->
+        <div class="py-2 flex items-center">
+          <i class="fa-solid fa-link px-2 text-gray-500"></i>
+          <%= f.text_field :url, class: "w-full border-none focus:outline-none focus:ring-0" , placeholder: "URL" %>
+        </div>
+        <!-- タグ -->
+        <div class="py-2 flex items-center">
+          <i class="fa-solid fa-tag px-2 text-gray-500"></i>
+          <div class="flex items-center text-gray-500 rounded-3xl hover:bg-gray-200 mx-1 px-2 py-1 hover:cursor-pointer">
+            <i class="fa-solid fa-plus mx-1"></i>
+            <%= simple_format 'タグを追加', class: "text-xs" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-full flex px-5">
+      <div class="w-1/2 flex items-center justify-center mr-1">
+        <%= f.submit '登録', class: "w-full py-3 rounded-xl bg-cyan-600 text-white hover:bg-cyan-500 active:bg-cyan-600"%>
+      </div>
+      <div class="w-1/2 flex items-center justify-center ml-1">
+        <%= link_to dashboard_path, class: "w-full flex items-center text-center rounded-xl border border-cyan-600 text-cyan-600 hover:bg-cyan-100 active:bg-white" do %>
+          <%= simple_format 'キャンセル', class: "w-full py-3"%>
+        <% end%>
+      </div>
+    </div>
+  <% end %>
+</div>

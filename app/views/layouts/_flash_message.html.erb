@@ -1,0 +1,12 @@
+<% flash.each do |message_type, message| %>
+  <% case message_type %>
+  <% when "success" then %>
+    <div class="flex justify-center items-center w-9/10 rounded-xl items-center bg-cyan-600 opacity-60 p-3 m-2">
+      <%= simple_format message, class: " font-semibold text-white text-center" %>
+    </div>
+  <% when "danger" then %>
+    <div class="flex justify-center items-center w-9/10 rounded-xl items-center bg-red-900 opacity-60 p-3 m-2">
+      <%= simple_format message, class: " font-semibold text-white text-center" %>
+    </div>
+  <% end %>
+<% end %>

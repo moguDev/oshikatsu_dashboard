@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "ungood-button-#{ @item.id }" do %>
+  <%= render 'good_button', item: @item %>
+<% end %>

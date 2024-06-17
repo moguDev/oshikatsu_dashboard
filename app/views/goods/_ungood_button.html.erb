@@ -1,0 +1,6 @@
+<%= link_to good_path(item.goods.find_by(user_id: current_user.id)), data: { turbo_method: :delete }, id: "ungood-button-#{item.id}" do %>
+  <div class="flex text-blue-500 items-center text-ms text-left h-full rounded-xl px-2 py-1 hover:text-blue-300 hover:bg-cyan-50 active:text-gray-400">
+    <i class="fa-solid fa-thumbs-up px-1"></i>
+    <%= simple_format item.goods.count.to_s %>
+  </div>
+<% end %>

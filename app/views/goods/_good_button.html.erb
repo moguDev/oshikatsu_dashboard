@@ -1,0 +1,6 @@
+<%= link_to goods_path(item_id: item.id), data: { turbo_method: :post }, id: "good-button-#{item.id}" do %>
+  <div class="flex text-gray-400 items-center text-ms text-left h-full rounded-xl px-2 py-1 hover:text-cyan-600 hover:bg-cyan-50 active:text-cyan-300">
+    <i class="fa-solid fa-thumbs-up px-1"></i>
+    <%= simple_format item.goods.count.to_s %>
+  </div>
+<% end %>

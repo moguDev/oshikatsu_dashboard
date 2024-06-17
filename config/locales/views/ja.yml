@@ -1,0 +1,54 @@
+ja:
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+    label:
+      email: メールアドレス
+      password: パスワード
+  app:
+    title: 推し活’ボード β
+    copyright: Copyright ©️ 2024 Sho-HORIGUCHI All Right Reserved.
+  pagination:
+    next: 次
+  home:
+    top:
+      title: サインイン
+    dashboard:
+      title: ダッシュボード
+      next_act: 次の推し活
+      our_act: みんなの推し活
+  user_sessions:
+    new:
+      title: サインイン
+      signup: 新規アカウント登録
+      password_forget: パスワードをお忘れの方はこちら
+    create:
+      success: サインインしました
+      failure: サインインに失敗しました
+    destroy:
+      success: サインアウトしました
+  users:
+    new:
+      title: アカウント登録
+    create:
+      success: 'アカウント登録が完了しました'
+      failure: 'アカウント登録に失敗しました'
+  items:
+    index:
+      title: これからの推し活
+    past:
+      title: 過去の推し活
+    new:
+      title: 新しい推し活の登録
+      is_private_true: PRIVATE
+      is_private_false: SHARED
+    create:
+      success: 推し活を作成しました
+      failure: 推し活の作成に失敗しました
+    edit:
+      title: 推し活の編集
+    update:
+      success: 推し活を更新しました
+      failure: 推し活の更新に失敗しました

@@ -1,0 +1,18 @@
+ja:
+  defaults:
+
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        email: メールアドレス
+        name: アカウント名
+        password: パスワード
+        password_confirmation: パスワード確認
+      item:
+        title: 推し活のタイトル
+        oshi: 推しの名前
+        start_date: 開始日
+        end_date: 終了日
+        is_private: 公開設定

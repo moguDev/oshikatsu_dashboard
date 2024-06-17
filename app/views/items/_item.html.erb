@@ -1,0 +1,87 @@
+<div class="flex-glow-1 min-w-1/2 font-m-plus-1 border-2 rounded-xl border-pink-200 bg-white m-2 p-5">
+  <!-- ヘッダーメニュー -->
+  <div class="flex items-center justify-between">
+    <% if item.is_private %>
+      <div class="text-xs font-semibold rounded-xl bg-pink-500 py-1 px-6 text-white">
+          <%= simple_format 'PRIVATE'%>
+      </div>
+    <% else %>
+      <div class="text-xs font-semibold rounded-xl bg-cyan-500 py-1 px-6 text-white">
+        <%= simple_format 'SHARED'%>
+      </div>
+    <% end %>
+    <% if current_user.own? item %>
+      <div class="flex items-center text-gray-500">
+        <%= link_to edit_item_path(item) do %>
+          <i class="fa-solid fa-pen-to-square px-1 hover:text-cyan-500"></i>
+        <% end %>
+        <%= link_to item_path(item), data: {turbo_method: :delete, turbo_confirm: "#{item.title}を削除しますか？"} do %>
+          <i class="fa-solid fa-trash px-1 hover:text-cyan-500"></i>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="flex items-center rounded-3xl text-xs font-semibold text-cyan-700 hover:bg-cyan-100 p-2">
+        <i class="fa-solid fa-file-import px-1"></i>
+        <p>インポート</p>
+      </div>
+    <% end %>
+  </div>
+  <!-- アイテム詳細 -->
+  <div class=" divide-y divide-pink-200">
+    <!-- 推し活名称 -->
+    <div class="py-2">
+      <%= simple_format item.title, class: "font-semibold"%>
+    </div>
+    <!-- 推しの名前 -->
+    <div class="py-2 flex items-center">
+      <i class="fa-solid fa-heart px-2 text-gray-500"></i>
+      <%= simple_format item.oshi, class: "mx-1"%>
+    </div>
+    <!-- 日時 -->
+    <div class="py-2 flex items-center">
+      <i class="fa-solid fa-calendar-days px-2 text-gray-500"></i>
+      <div class="flex items-center">
+        <%= simple_format item.start_date.to_s, class: "mx-1" %>
+        <% if item.end_date.present? && item.start_date != item.end_date %>
+          <%= simple_format '〜' %>
+          <%= simple_format item.end_date.to_s, class: "mx-1" %>
+        <% end %>
+      </div>
+    </div>
+    <!-- 場所 -->
+    <div class="py-2 flex items-center">
+      <i class="fa-solid fa-location-dot px-2 text-gray-500"></i>
+      <%= simple_format item.locate, class: "mx-1"%>
+    </div>
+    <!-- URL -->
+    <div class="py-2 flex items-center">
+      <i class="fa-solid fa-link px-2 text-gray-500"></i>
+      <a href=<%= item.url %> target="_blank", class="mx-1">
+        <%= simple_format item.url, class: "underline text-blue-900 hover:text-blue-600"%>
+      </a>
+    </div>
+    <!-- タグ -->
+    <div class="py-2 flex items-center">
+      <i class="fa-solid fa-tag px-2 text-gray-500"></i>
+      <div class="flex text-xs">
+        <p class="flex text-xs px-3 bg-gray-200 rounded-xl flex text-xs mx-1 py-1">田村ゆかり</p>
+        <p class="flex text-xs px-3 bg-gray-200 rounded-xl flex text-xs mx-1 py-1">ライブ</p>
+        <p class="flex text-xs px-3 bg-gray-200 rounded-xl flex text-xs mx-1 py-1">*Honey bunny*</p>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-between items-center">
+    <% unless item.goods.find_by(user_id: current_user.id).present? %>
+      <%= render 'goods/good_button', item: item %>
+    <% else %>
+      <%= render 'goods/ungood_button', item: item %>
+    <% end %>
+    <div class="text-gray-400 ">
+      <% if current_user.own? item %>
+        <%= simple_format 'by me', class: "text-xs text-right" %>
+      <% else %>
+        <%= simple_format "by #{ item.user.name }", class: "text-xs text-right" %>
+      <% end %>
+    </div>
+  </div>
+</div>
