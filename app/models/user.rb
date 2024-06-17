@@ -9,7 +9,6 @@ class User < ApplicationRecord
 
   has_many :items
   has_many :goods, dependent: :destroy
-  has_many :tags
 
   def own?(object)
     id == object&.user_id

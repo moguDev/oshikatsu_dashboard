@@ -1,4 +1,4 @@
-<div class="flex text-black bg-pink-50 p-5">
+<div class="flex h-full text-black bg-pink-50 p-5">
   <!-- -->
   <div class="w-1/2">
     <div class="rounded-2xl bg-cyan-900 opacity-80 mx-3 p-2">
@@ -32,12 +32,16 @@
       <!-- 次の推し活 -->
       <div class="pb-1 rounded-2xl bg-pink-50">
         <div class="flex items-center p-2 text-pink-600">
-          <i class="fa-solid fa-caret-right"></i>
-          <i class="fa-solid fa-caret-right"></i>
-          <i class="fa-solid fa-caret-right"></i>
-          <%= simple_format "#{t('.next_act')}まで、あと#{(@next_item.start_date - @today).to_i}日", class: "text-ms font-semibold m-1"%>
+          <% if @next_item.present? %>
+            <i class="fa-solid fa-caret-right"></i>
+            <i class="fa-solid fa-caret-right"></i>
+            <i class="fa-solid fa-caret-right"></i>
+            <%= simple_format "#{t('.next_act')}まで、あと#{(@next_item.start_date - @today).to_i}日", class: "text-ms font-semibold m-1"%>
+          <% end %>
         </div>
-        <% if @next_item.present? %>
+        <% if @today_items.present? %>
+          <%= render partial: 'items/item', collection: @today_items, as: :item %>
+        <% elsif @next_item.present? %>
           <%= render 'items/item', item: @next_item %>
         <% else %>
           <div class="items-center p-5 bg-gray-100 rounded-xl">
@@ -76,21 +80,20 @@
     </div>
   </div>
   <!-- みんなの推し活 -->
-  <div class="w-1/2 rounded-xl opacity-80 mx-3">
+  <div class="w-1/2 flex-col h-screen rounded-xl opacity-80 mx-3">
     <div class="justify-center mx-3 py-1">
-      <%= simple_format t('.our_act'), class: "font-bold text-2xl text-cyan-900" %>
-      <div class="flex items-center bg-white rounded-3xl border mt-3 w-full">
-        <i class="fa-solid fa-magnifying-glass text-cyan-600 pl-3"></i>
-        <input type="text", class="border-none bg-opacity-0 rounded-3xl w-full focus:outline-none focus:ring-0", value: "キーワードで検索">
-        <%= simple_format '検索', class: "flex-glow rounded-3xl bg-blue-800 text-white font-semibold x-3"%>
+      <div class="flex items-center justify-between mb-3">
+        <%= simple_format t('.our_act'), class: "font-bold text-2xl text-cyan-900" %>
+        <%= simple_format "#{@our_items_count.to_i}件", class: "font-bold text-2xl text-cyan-900" %>
       </div>
+      <%= render 'layouts/search', q: @q, url: dashboard_path %>
     </div>
     <div class="py-2 overflow-y-scroll">
       <% if @our_items.present? %>
         <%= render partial: 'items/item', collection: @our_items, as: :item %>
       <% else %>
-        <div class="flex items-center p-10">
-          <%= simple_format '推し活が見つかりませんでした。', class: "w-full text-center text-gray-100 font-semibold"%>
+        <div class="flex-col items-center p-10 bg-white bg-opacity-90 rounded-3xl m-5">
+          <%= simple_format '推し活が見つかりませんでした...', class: "h-full w-full text-center text-xl text-gray-400 font-semibold"%>
         </div>
       <% end %>
     </div>

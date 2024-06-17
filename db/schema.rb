@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_16_103947) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_17_124557) do
   create_table "goods", force: :cascade do |t|
     t.integer "user_id"
     t.integer "item_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_16_103947) do
     t.boolean "is_private"
     t.boolean "transportation"
     t.boolean "lodging"
+    t.integer "owner_id"
   end
 
   create_table "users", force: :cascade do |t|

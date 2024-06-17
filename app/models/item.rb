@@ -12,6 +12,15 @@ class Item < ApplicationRecord
   has_many :goods, dependent: :destroy
   has_many :tags, dependent: :destroy
 
+  def self.ransackable_attributes(auth_object = nil)
+    # 全ての列を検索可能にする
+    authorizable_ransackable_attributes
+  end
+  def self.ransackable_associations(auth_object = nil)
+    # 全ての関連テーブルを検索可能にする
+    authorizable_ransackable_associations
+  end
+
   private
 
   def check_is_private
