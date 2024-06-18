@@ -19,6 +19,12 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.title = params[:title] || ""
+    @item.oshi = params[:oshi] || ""
+    @item.start_date = params[:start_date] || nil
+    @item.end_date = params[:end_date] || nil
+    @item.locate = params[:locate] || nil
+    @item.url = params[:url] || nil
   end
 
   def create

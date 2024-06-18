@@ -20,10 +20,12 @@
         <% end %>
       </div>
     <% else %>
-      <div class="flex items-center rounded-3xl text-xs font-semibold text-cyan-700 hover:bg-cyan-100 p-2">
-        <i class="fa-solid fa-copy px-1"></i>
-        <p>コピー</p>
-      </div>
+      <%= link_to new_item_path(title: item.title, oshi: item.oshi, start_date: item.start_date, end_date: item.end_date, locate: item.locate, url: item.url), data: { turbo_confirm: "#{item.title}をコピーして推し活を作成しますか？" } do %>
+        <div class="flex items-center rounded-3xl text-xs font-semibold text-cyan-700 hover:bg-cyan-100 p-2">
+          <i class="fa-solid fa-copy px-1"></i>
+          <p>コピー</p>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <!-- アイテム詳細 -->

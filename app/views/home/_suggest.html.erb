@@ -1,0 +1,14 @@
+<div class="bg-white rounded-xl w-full">
+  <div class="text-cyan-800 p-3">
+    <%= simple_format '今日の推し活のススメ', class: "text-xs text-pink-400"%>
+    <div class="divide-y divide-gray-300 py-1">
+      <div class="flex items-center my-1">
+        <i class="fa-solid fa-lightbulb mx-1"></i>
+        <%= simple_format suggest.title, class: "text-xl font-bold"%>
+      </div>
+      <div class="p-3">
+        <%= simple_format  suggest.body, class: "text-sm"%>
+      </div>
+    </div>
+  </div>
+</div>

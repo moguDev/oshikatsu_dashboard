@@ -6,11 +6,12 @@ class Item < ApplicationRecord
   validates :start_date, presence: true, format: { with: VALID_DATE_REGEX }
   validates :end_date, presence: true, format: { with: VALID_DATE_REGEX }
   validate :start_date_cannot_be_in_the_past, :end_date_cannot_be_in_the_past
+  validates :locate, length: { maximum: 255 }
+  validates :url, format: /\A#{URI::regexp(%w(http https))}\z/
   validate :check_is_private
 
   belongs_to :user
   has_many :goods, dependent: :destroy
-  has_many :tags, dependent: :destroy
 
   def self.ransackable_attributes(auth_object = nil)
     # 全ての列を検索可能にする

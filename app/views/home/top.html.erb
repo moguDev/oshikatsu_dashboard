@@ -49,25 +49,34 @@
       </div>
     </div>
   </div>
-  <div class="bg-white rounded-3xl border-2 border-pink-200 mt-5 p-5">
+  <div class="bg-white rounded-3xl border-2 border-pink-200 m-5 p-5">
     <%= simple_format '・推し活ダッシュボードの使い方', class: "font-semibold text-2xl text-pink-800" %>
-    <div class="flex items-center mt-5">
-      <div class="w-1/3 m-1">
+    <div class="grid grid-cols-3 mt-5">
+      <div class="m-1">
         <%= simple_format '1. 推しのライブやイベントを記録しよう！', class: "w-full text-center rounded-xl bg-pink-400 text-white font-semibold p-2" %>
         <div class="flex justify-center my-2">
           <%= image_tag 'idol_fan_penlight_uchiwa_woman.png', class: "w-3/5 object-cover"%>
         </div>
+        <div class="flex justify-center my-2">
+          <%= simple_format 'ライブやイベントへの参加など、あなたの推し活をこのアプリケーションで記録しましょう！', class: "text-sm w-4/5" %>
+        </div>
       </div>
-      <div class="w-1/3 m-1">
+      <div class="m-1">
         <%= simple_format '2. 身近な人に贈り物や感謝を伝えよう！', class: "w-full text-center rounded-xl bg-pink-400 text-white font-semibold p-2" %>
         <div class="flex justify-center my-2">
           <%= image_tag 'hanataba_flower_boy.png', class: "w-3/5 object-cover"%>
         </div>
+        <div class="flex justify-center my-2">
+          <%= simple_format '身近な人に小さなサプライズをしましょう！特別な日でなくても贈り物や感謝の気持ちを伝えることで、あなた日常がより豊かになります。', class: "text-sm w-4/5" %>
+        </div>
       </div>
-      <div class="w-1/3 m-1">
+      <div class="m-1">
         <%= simple_format '3. みんなの推し活にグッドを贈ろう！', class: "w-full text-center rounded-xl bg-pink-400 text-white font-semibold p-2" %>
         <div class="flex justify-center my-2">
           <%= image_tag 'good_woman.png', class: "w-3/5 object-cover"%>
+        </div>
+        <div class="flex justify-center my-2">
+          <%= simple_format 'みんなで推し活に「グッド」を贈り合って、お互いの推し活を応援しましょう！', class: "text-sm w-4/5" %>
         </div>
       </div>
     </div>
