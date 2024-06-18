@@ -137,4 +137,11 @@
       <%= paginate @our_items %>
     </div>
   </div>
+  <!-- Floating Action Button -->
+  <%= link_to new_item_path, class: "md:hidden fixed bottom-2 right-2 bg-pink-500 hover:bg-pink-400 p-4 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" do %>
+    <div class="flex items-center text-white  font-semibold text-sm">
+      <i class="fa-solid fa-plus mx-1"></i>
+      <%= simple_format '新しい推し活' %>
+    </div>
+  <% end %>
 </div>
