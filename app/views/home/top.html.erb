@@ -1,26 +1,26 @@
-<div class="m-10">
-  <div class="flex box-border justify-center w-full mt-5">
-    <div class="flex items-center">
-      <%= image_tag 'icon.png', class: "rotate-3"%>
+<div class="md:m-10 m-5">
+  <div class="md:flex box-border justify-center w-full mt-5">
+    <div class="flex items-center justify-center">
+      <%= image_tag 'icon.png', class: "rotate-3 md:w-full w-2/3"%>
     </div>
-    <div class="ml-10">
-      <div class="">
-        <p class="p-3 font-bold text-9xl text-pink-500">推し活’ボード</p>
-        <p class="w-full font-semibold py-5 text-3xl text-pink-400 text-right">オシカツダッシュボード ver.β</p>
+    <div class="md:ml-10">
+      <div class="text-left">
+        <p class="font-bold text-pink-500 md:text-9xl text-5xl p-3 md:text-left text-center">推し活’ボード</p>
+        <p class="w-full font-semibold md:py-4 py-1 text-pink-400 md:text-right text-center xl:text-4xl text-xl">オシカツダッシュボード ver.β</p>
         <div class="rounded-3xl border-none bg-white h-auto divide-y divide-gray-200 mt-5 p-5 text-gray-700">
-          <div class="text-xl font-semibold my-3 text-pink-400">
+          <div class="md:text-xl sm:text-base font-semibold my-3 text-pink-400">
             <p>「推し活」をもっと身近なところに。</p>
           </div>
-          <div class="text-sm my-2 p-2">
+          <div class="md:text-sm text-xs my-2 p-2">
             <p>あなたにとって<span class="font-semibold text-pink-700">「推し」</span>とはなんでしょうか。憧れの俳優やアイドル？アニメなどのキャラクター？それもいいですね！</p>
           </div>
-          <div class="text-sm my-2 p-2">
+          <div class="md:text-sm text-xs my-2 p-2">
             <p>このアプリケーションはそんなあなたの「憧れ」の推し活はもちろん、もっと身近なところでの<span class="font-semibold text-pink-700">「推し活」</span>を提案します。</p>
           </div>
-          <div class="text-sm my-2 p-2">
+          <div class="md:text-sm text-xs my-2 p-2">
             <p>身近なところとは？いつもそばにいてくれる家族や恋人、大切な友人やペット、そして、あなた自身など。</p>
           </div>
-          <div class="text-sm my-2 p-2">
+          <div class="md:text-sm text-xs my-2 p-2">
             <p>当たり前になっていることや、いつもそばにいてくれる人への感謝ほど普段は見えにくく感じにくいものですよね。</p>
           </div>
           <div class="text-sm my-2 p-2">
@@ -37,11 +37,11 @@
             <div class="flex items-center">
               <%= link_to signin_path, class: "flex justify-center items-center w-1/2 bg-pink-400 text-white rounded mr-1 my-1 p-3 hover:bg-pink-300" do%>
                 <i class="fa-solid fa-right-to-bracket mx-2"></i>
-                <%= simple_format 'サインイン', class: "font-semibold"%>
+                <%= simple_format 'サインイン', class: "font-semibold text-sm md:text-base" %>
               <% end %>
               <%= link_to signup_path, class: "flex justify-center items-center w-1/2 text-pink-400 rounded border-2 border-pink-400 ml-1 my-1 p-3 hover:bg-pink-50" do%>
                 <i class="fa-solid fa-user-plus mx-2"></i>
-                <%= simple_format '新規登録', class: "font-semibold" %>
+                <%= simple_format '新規登録', class: "font-semibold text-sm md:text-base" %>
               <% end %>
             <% end %>
           </div>
@@ -49,11 +49,11 @@
       </div>
     </div>
   </div>
-  <div class="bg-white rounded-3xl border-2 border-pink-200 m-5 p-5">
-    <%= simple_format '・推し活ダッシュボードの使い方', class: "font-semibold text-2xl text-pink-800" %>
-    <div class="grid grid-cols-3 mt-5">
-      <div class="m-1">
-        <%= simple_format '1. 推しのライブやイベントを記録しよう！', class: "w-full text-center rounded-xl bg-pink-400 text-white font-semibold p-2" %>
+  <div class="bg-white rounded-3xl border-2 border-pink-200 md:mx-5 mt-5 md:p-5 p-3">
+    <%= simple_format '・推し活ダッシュボードの使い方', class: "font-semibold md:text-2xl text-lg md:text-left text-center text-pink-800" %>
+    <div class="md:grid md:grid-cols-3 mt-5">
+      <div class="md:m-1 m-2">
+        <%= simple_format '1. 推しのライブやイベントを記録しよう！', class: "w-full text-center rounded-xl bg-pink-400 text-white font-semibold p-2 md:text-base text-sm" %>
         <div class="flex justify-center my-2">
           <%= image_tag 'idol_fan_penlight_uchiwa_woman.png', class: "w-3/5 object-cover"%>
         </div>
@@ -62,7 +62,7 @@
         </div>
       </div>
       <div class="m-1">
-        <%= simple_format '2. 身近な人に贈り物や感謝を伝えよう！', class: "w-full text-center rounded-xl bg-pink-400 text-white font-semibold p-2" %>
+        <%= simple_format '2. 身近な人に贈り物や感謝を伝えよう！', class: "w-full text-center rounded-xl bg-pink-400 text-white font-semibold p-2 md:text-base text-sm" %>
         <div class="flex justify-center my-2">
           <%= image_tag 'hanataba_flower_boy.png', class: "w-3/5 object-cover"%>
         </div>
@@ -71,7 +71,7 @@
         </div>
       </div>
       <div class="m-1">
-        <%= simple_format '3. みんなの推し活にグッドを贈ろう！', class: "w-full text-center rounded-xl bg-pink-400 text-white font-semibold p-2" %>
+        <%= simple_format '3. みんなの推し活にグッドを贈ろう！', class: "w-full text-center rounded-xl bg-pink-400 text-white font-semibold p-2 md:text-base text-sm" %>
         <div class="flex justify-center my-2">
           <%= image_tag 'good_woman.png', class: "w-3/5 object-cover"%>
         </div>

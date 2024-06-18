@@ -1,17 +1,17 @@
-<div class="container justiry-center w-2/3 mx-auto p-5">
-  <%= simple_format t('.title'), class: "font-bold text-pink-600 text-3xl p-1 mx-5"%>
+<div class="container justiry-center md:w-2/3 mx-auto md:p-5">
+  <%= simple_format t('.title'), class: "font-bold text-pink-600 text-3xl p-1 mx-5 md:my-0 my-3"%>
   <%= render 'layouts/error', obj: @item %>
   <%= form_with model: @item, url: item_path(@item), data: {turbo_method: :patch} do |f| %>
     <!-- 登録フォーム -->
-    <div class="border rounded-xl border-pink-100 bg-white mx-5 my-2 p-5">
+    <div class="border rounded-xl border-pink-100 bg-white md:mx-5 md:p-5 mx-2 my-2 p-2">
       <!-- ヘッダーメニュー -->
-      <div class="flex items-center text-sm">
+      <div class="md:flex items-center text-sm md:m-0 m-2">
         <%= simple_format '公開設定：', class: "text-xs text-gray-400 font-semibold pl-3"%>
-        <div class="flex items-center font-semibold rounded-xl mr-2 py-1 text-white hover:cursor-pointer">
+        <div class="flex items-center font-semibold rounded-xl md:mr-2 py-1 text-white hover:cursor-pointer">
           <%= f.radio_button :is_private, false, class: "mx-1 border border-gray-600 focus:outline-none focus:ring-0"%>
           <%= simple_format 'SHARED（すべてのユーザーが閲覧できます）', class: "text-cyan-600"%>
         </div>
-        <div class="flex items-center font-semibold rounded-xl ml-2 py-1 hover:cursor-pointer">
+        <div class="flex items-center font-semibold rounded-xl md:ml-2 py-1 hover:cursor-pointer">
           <%= f.radio_button :is_private, true, class: "mx-1 border border-gray-600 focus:outline-none focus:ring-0" %>
           <%= simple_format 'PRIVATE（あなただけが閲覧できます）', class: "text-pink-600" %>
         </div>
@@ -20,7 +20,7 @@
       <div class="w-full divide-y divide-pink-200">
         <!-- 推し活名称 -->
         <div class="pt-2 border-b-1 border-gray-200">
-          <%= f.text_field :title, class: "text-xl w-full font-semibold border-none focus:outline-none focus:ring-0" , placeholder: "推し活のタイトル" %>
+          <%= f.text_field :title, class: "text-xl font-semibold border-none focus:outline-none focus:ring-0" , placeholder: "推し活のタイトル" %>
         </div>
         <!-- 推しの名前 -->
         <div class="pt-2 flex items-center">
@@ -31,9 +31,9 @@
         <div class="py-2 flex items-center">
           <i class="fa-solid fa-calendar-days px-2 w-10 text-center text-gray-500"></i>
           <div class="flex items-center">
-            <%= f.date_field :start_date, class: "w-full border-none rounded-xl bg-gray-50 focus:outline-none focus:ring-0", placeholder: "開始日時"%>
+            <%= f.date_field :start_date, class: "flex-grow border-none rounded-xl bg-gray-50 focus:outline-none focus:ring-0", placeholder: "開始日時"%>
             <%= simple_format "〜", class: "px-3"%>
-            <%= f.date_field :end_date, class: "w-full border-none rounded-xl bg-gray-50 focus:outline-none focus:ring-0"%>
+            <%= f.date_field :end_date, class: "flex-grow border-none rounded-xl bg-gray-50 focus:outline-none focus:ring-0"%>
           </div>
         </div>
         <!-- 場所 -->

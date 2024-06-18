@@ -1,6 +1,6 @@
 <% content_for :title, "#{t('.title')} | #{t('app.title')}" %>
-<div class="container justiry-center w-full mx-auto p-5">
-  <div class="justiry-center w-1/2 mx-auto">
+<div class="container justiry-center w-full mx-auto md:p-5">
+  <div class="justiry-center md:w-1/2 mx-auto">
   <div class="p-5 m-10 rounded-3xl border-2 border-pink-100">
     <%= simple_format t('.title'), class: 'font-semibold text-pink-600 text-3xl m-2 p-2' %>
     <%= form_with url: signin_path do |f| %>

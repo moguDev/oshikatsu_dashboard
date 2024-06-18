@@ -7,3 +7,8 @@ Suggest.create(
   end_date: Date.new(2024, 8, 11),
   locate: "浅草橋ヒューリックホール"
 )
+
+#20.times do |index|
+#  user = User.find(1)
+#  user.items.create(title: "タイトル#{index}", oshi: "推し#{index}", start_date: Date.today, is_private: false)
+#end
