@@ -1,7 +1,7 @@
 <%= search_form_for q, url: url do |f| %>
   <div class="flex flex-grow items-center rounded-3xl bg-white border border-gray-50 m-1">
     <i class="fa-solid fa-magnifying-glass text-gray-500 m-3"></i>
-    <%= f.search_field :title_or_oshi_or_locate_cont, class: "w-full text-black rounded-3xl border-none focus:outline-none focus:ring-0"%>
+    <%= f.search_field :title_or_oshi_or_locate_or_memo_cont, class: "w-full text-black rounded-3xl border-none focus:outline-none focus:ring-0"%>
     <%= f.submit "検索", class: "rounded-3xl bg-cyan-700 text-white px-5 py-3"%>
   </div>
 <% end %>

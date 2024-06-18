@@ -5,13 +5,13 @@ class HomeController < ApplicationController
 
   def dashboard
     @today = Date.today
-    suggests = Suggest.all
+    suggests = Suggest.all.to_a
     if suggests.present?
       seed = @today.strftime('%Y%m%d').to_i
-      idx = 20240618 % suggests.count + 1
-      @suggest = suggests.find(idx)
+      idx = seed % suggests.size
+      @suggest = suggests[idx]
     end
-
+    
     @items = Item.where(user_id: current_user.id)
     @items_in_future = @items.where('start_date >= ?', @today)
     @items_in_past = @items.where('start_date < ?', @today)

@@ -16,3 +16,4 @@ ja:
         start_date: 開始日
         end_date: 終了日
         is_private: 公開設定
+        memo: メモ

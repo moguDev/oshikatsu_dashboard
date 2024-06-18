@@ -24,12 +24,12 @@
         </div>
         <!-- 推しの名前 -->
         <div class="pt-2 flex items-center">
-          <i class="fa-solid fa-heart px-2 text-gray-500"></i>
+          <i class="fa-solid fa-heart px-2 w-10 text-center text-gray-500"></i>
           <%= f.text_field :oshi, class: "w-full border-none focus:outline-none focus:ring-0" , placeholder: "推しの名前" %>
         </div>
         <!-- 日時 -->
         <div class="py-2 flex items-center">
-          <i class="fa-solid fa-calendar-days px-2 text-gray-500"></i>
+          <i class="fa-solid fa-calendar-days px-2 w-10 text-center text-gray-500"></i>
           <div class="flex items-center">
             <%= f.date_field :start_date, class: "w-full border-none rounded-xl bg-gray-50 focus:outline-none focus:ring-0", placeholder: "開始日時"%>
             <%= simple_format "〜", class: "px-3"%>
@@ -38,15 +38,19 @@
         </div>
         <!-- 場所 -->
         <div class="py-2 flex items-center">
-          <i class="fa-solid fa-location-dot px-2 text-gray-500"></i>
+          <i class="fa-solid fa-location-dot px-2 w-10 text-center text-gray-500"></i>
           <%= f.text_field :locate, class: "w-full border-none focus:outline-none focus:ring-0" , placeholder: "場所" %>
         </div>
         <!-- URL -->
         <div class="py-2 flex items-center">
-          <i class="fa-solid fa-link px-2 text-gray-500"></i>
+          <i class="fa-solid fa-link px-2 w-10 text-center text-gray-500"></i>
           <%= f.text_field :url, class: "w-full border-none focus:outline-none focus:ring-0" , placeholder: "URL" %>
         </div>
-      </div>
+        <!-- メモ -->
+        <div class="py-3 flex items-center">
+          <i class="fa-solid fa-file-lines px-2 w-10 text-center text-gray-500"></i>
+          <%= f.text_area :memo, class: "flex-grow border-none focus:outline-none focus:ring-0" , placeholder: "メモなど", rows: 2 %>
+        </div>
     </div>
     <div class="w-full flex px-5">
       <div class="w-1/2 flex items-center justify-center mr-1">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_17_235902) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_18_041927) do
   create_table "goods", force: :cascade do |t|
     t.integer "user_id"
     t.integer "item_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_17_235902) do
     t.boolean "transportation"
     t.boolean "lodging"
     t.integer "owner_id"
+    t.string "memo"
   end
 
   create_table "suggests", force: :cascade do |t|
@@ -43,6 +44,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_17_235902) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "item_title"
+    t.string "oshi"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "locate"
   end
 
   create_table "users", force: :cascade do |t|

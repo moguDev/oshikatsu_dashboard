@@ -4,7 +4,10 @@
     <div class="divide-y divide-gray-300 py-1">
       <div class="flex items-center my-1">
         <i class="fa-solid fa-lightbulb mx-1"></i>
-        <%= simple_format suggest.title, class: "text-xl font-bold"%>
+        <%= simple_format suggest.title, class: "flex-grow text-xl font-bold"%>
+        <%= link_to new_item_path(title: suggest.item_title, oshi: suggest.oshi, start_date: suggest.start_date, end_date: suggest.end_date, locate: suggest.locate) do %>
+          <%= simple_format '推し活を作成', class: "rounded-xl bg-cyan-400 text-white text-xs px-2 py-1 hover:bg-cyan-300"%>
+        <% end %>
       </div>
       <div class="p-3">
         <%= simple_format  suggest.body, class: "text-sm"%>

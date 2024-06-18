@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:is_private, :title, :oshi, :start_date, :end_date, :locate, :url).merge(user_id: current_user.id, owner_id: current_user.id)
+    params.require(:item).permit(:is_private, :title, :oshi, :start_date, :end_date, :locate, :url, :memo).merge(user_id: current_user.id, owner_id: current_user.id)
   end
 
   def ensure_correct_user

@@ -9,6 +9,8 @@ class Item < ApplicationRecord
   validates :locate, length: { maximum: 255 }
   validates :url, format: /\A#{URI::regexp(%w(http https))}\z/, allow_nil: true, allow_blank: true
   validate :check_is_private
+  validates :memo, length: { maximum: 60 }, allow_nil: true, allow_blank: true
+
 
   belongs_to :user
   has_many :goods, dependent: :destroy
