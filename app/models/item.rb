@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   validates :end_date, presence: true, format: { with: VALID_DATE_REGEX }
   validate :start_date_cannot_be_in_the_past, :end_date_cannot_be_in_the_past
   validates :locate, length: { maximum: 255 }
-  validates :url, format: /\A#{URI::regexp(%w(http https))}\z/
+  validates :url, format: /\A#{URI::regexp(%w(http https))}\z/, allow_nil: true, allow_blank: true
   validate :check_is_private
 
   belongs_to :user
