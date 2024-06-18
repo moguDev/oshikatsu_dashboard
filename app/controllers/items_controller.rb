@@ -1,17 +1,30 @@
 class ItemsController < ApplicationController
+  before_action :ensure_correct_user, only: %i[edit update destroy]
 
   def index
     today = Date.today
-    @items = current_user.items.where('start_date >= ? OR end_date >= ?', today, today).order(:start_date).page(params[:page]).per(10)
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true).where(user_id: current_user.id).where('start_date >= ? OR end_date >= ?', today, today).order(:start_date)
+    @items_count = 0; @items_count = @items.count if @items.present?
+    @items = @items.page(params[:page]).per(10)
   end
 
   def past
     today = Date.today
-    @items = current_user.items.where('end_date < ?', today).order(end_date: :desc).page(params[:page]).per(10)
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true).where(user_id: current_user.id).where('end_date < ?', today).order(end_date: :desc)
+    @items_count = 0; @items_count = @items.count if @items.present?
+    @items = @items.page(params[:page]).per(10)
   end
 
   def new
     @item = Item.new
+    @item.title = params[:title] || ""
+    @item.oshi = params[:oshi] || ""
+    @item.start_date = params[:start_date] || nil
+    @item.end_date = params[:end_date] || nil
+    @item.locate = params[:locate] || nil
+    @item.url = params[:url] || nil
   end
 
   def create
@@ -45,6 +58,13 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:is_private, :title, :oshi, :start_date, :end_date, :locate, :url, :ticket).merge(user_id: current_user.id)
+    params.require(:item).permit(:is_private, :title, :oshi, :start_date, :end_date, :locate, :url).merge(user_id: current_user.id, owner_id: current_user.id)
+  end
+
+  def ensure_correct_user
+    @item = Item.find(params[:id])
+    if @item.user_id != current_user.id
+      redirect_to "/", danger: "権限がありません"
+    end
   end
 end

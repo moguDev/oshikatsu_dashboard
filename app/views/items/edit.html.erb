@@ -17,7 +17,7 @@
         </div>
       </div>
       <!-- アイテム詳細 -->
-      <div class=" divide-y divide-pink-200">
+      <div class="w-full divide-y divide-pink-200">
         <!-- 推し活名称 -->
         <div class="pt-2 border-b-1 border-gray-200">
           <%= f.text_field :title, class: "text-xl w-full font-semibold border-none focus:outline-none focus:ring-0" , placeholder: "推し活のタイトル" %>
@@ -45,14 +45,6 @@
         <div class="py-2 flex items-center">
           <i class="fa-solid fa-link px-2 text-gray-500"></i>
           <%= f.text_field :url, class: "w-full border-none focus:outline-none focus:ring-0" , placeholder: "URL" %>
-        </div>
-        <!-- タグ -->
-        <div class="py-2 flex items-center">
-          <i class="fa-solid fa-tag px-2 text-gray-500"></i>
-          <div class="flex items-center text-gray-500 rounded-3xl hover:bg-gray-200 mx-1 px-2 py-1 hover:cursor-pointer">
-            <i class="fa-solid fa-plus mx-1"></i>
-            <%= simple_format 'タグを追加', class: "text-xs" %>
-          </div>
         </div>
       </div>
     </div>

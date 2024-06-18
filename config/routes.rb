@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :items do
-    resources :tags, only: %i[create destroy]
+    resources :taggings, only: %i[create destroy]
     collection do
       get 'past'
     end
