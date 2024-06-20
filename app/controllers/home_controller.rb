@@ -22,7 +22,7 @@ class HomeController < ApplicationController
     @oshi = Item.where(user_id: current_user.id).group(:oshi).order('count_all DESC').limit(3).count
 
     @q = Item.ransack(params[:q])
-    @our_items = @q.result(distinct: true).includes(:user).where.not(user_id: current_user.id).where('start_date >= ?', @today).where(is_private: false).order(created_at: :desc)
+    @our_items = @q.result(distinct: true).includes(:user).where.not(user_id: current_user.id).where(is_private: false).order(created_at: :desc)
     @our_items_count = 0; @our_items_count = @our_items.count if @our_items.present?
     @our_items = @our_items.page(params[:page]).per(5)
   end

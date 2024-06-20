@@ -1,17 +1,17 @@
-<div class="container justiry-center md:w-2/3 mx-auto md:p-5">
-  <%= simple_format t('.title'), class: "font-bold text-pink-600 text-3xl p-1 mx-5 md:my-0 my-3"%>
+<div class="container justiry-center lg:w-2/3 mx-auto md:p-5">
+  <%= simple_format t('.title'), class: "font-bold text-pink-600 text-3xl p-1 mx-5 lg:my-0 my-3"%>
   <%= render 'layouts/error', obj: @item %>
   <%= form_with model: @item, url: item_path(@item), data: {turbo_method: :patch} do |f| %>
     <!-- 登録フォーム -->
-    <div class="border rounded-xl border-pink-100 bg-white md:mx-5 md:p-5 mx-2 my-2 p-2">
+    <div class="border rounded-xl border-pink-100 bg-white lg:mx-5 lg:p-5 mx-2 my-2 p-2">
       <!-- ヘッダーメニュー -->
-      <div class="md:flex items-center text-sm md:m-0 m-2">
+      <div class="lg:flex items-center text-sm lg:m-0 m-2">
         <%= simple_format '公開設定：', class: "text-xs text-gray-400 font-semibold pl-3"%>
-        <div class="flex items-center font-semibold rounded-xl md:mr-2 py-1 text-white hover:cursor-pointer">
+        <div class="flex items-center font-semibold rounded-xl lg:mr-2 py-1 text-white hover:cursor-pointer">
           <%= f.radio_button :is_private, false, class: "mx-1 border border-gray-600 focus:outline-none focus:ring-0"%>
           <%= simple_format 'SHARED（すべてのユーザーが閲覧できます）', class: "text-cyan-600"%>
         </div>
-        <div class="flex items-center font-semibold rounded-xl md:ml-2 py-1 hover:cursor-pointer">
+        <div class="flex items-center font-semibold rounded-xl lg:ml-2 py-1 hover:cursor-pointer">
           <%= f.radio_button :is_private, true, class: "mx-1 border border-gray-600 focus:outline-none focus:ring-0" %>
           <%= simple_format 'PRIVATE（あなただけが閲覧できます）', class: "text-pink-600" %>
         </div>

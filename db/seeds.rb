@@ -1,3 +1,4 @@
+=begin
 Suggest.create(
   title: "RUNTEQ_pathに参加しよう！",
   body: "次の一歩を踏み出すためのカンファレンス RUNTEQ_pathに参加しましょう！",
@@ -7,6 +8,7 @@ Suggest.create(
   end_date: Date.new(2024, 8, 11),
   locate: "浅草橋ヒューリックホール"
 )
+=end
 
 #20.times do |index|
 #  user = User.find(1)

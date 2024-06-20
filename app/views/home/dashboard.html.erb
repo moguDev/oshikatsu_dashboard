@@ -1,6 +1,6 @@
 <div class="md:flex h-full text-black bg-pink-50 md:p-5">
   <!-- -->
-  <div class="md:w-1/2">
+  <div class="lg:w-1/2">
     <% if @suggest.present? %>
       <div class="mx-1 mb-3 p-2">
         <%= render 'suggest', suggest: @suggest%>
@@ -14,7 +14,7 @@
           <p class="font-semibold"><%= current_user.name %></p>
         </div>
       </div>
-      <div class="md:flex justify-center items-top w-full">
+      <div class="xl:flex justify-center items-top w-full">
         <div class="p-1 w-3/7">
           <%= simple_format '推し活', class: "text-sm text-center rounded-3xl bg-white text-cyan-900 font-semibold"%>
           <div class="flex items-center justify-center p-4 text-white divide-x divide-gray-400">
@@ -116,7 +116,7 @@
     </div>
   </div>
   <!-- みんなの推し活 -->
-  <div class="md:w-1/2 flex-col rounded-xl opacity-80 mx-3 md:mt-0 mt-5">
+  <div class="lg:w-1/2 flex-col rounded-xl opacity-80 mx-3 md:mt-0 mt-5">
     <div class="justify-center mx-3 py-1">
       <div class="flex items-center justify-between mb-3">
         <%= simple_format t('.our_act'), class: "font-bold text-2xl text-cyan-900" %>

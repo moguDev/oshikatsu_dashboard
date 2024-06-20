@@ -64,7 +64,7 @@
       <i class="fa-solid fa-link px-2 w-10 text-center text-gray-500"></i>
       <% if item.url.present? %>
         <a href=<%= item.url %> target="_blank", class="mx-1">
-          <%= simple_format item.url, class: "underline text-blue-900 hover:text-blue-600"%>
+          <%= simple_format item.url, class: "flex-grow truncate underline text-blue-900 hover:text-blue-600"%>
         </a>
       <% else %>
         <%= simple_format '未設定', class: "text-sm text-gray-400"%>

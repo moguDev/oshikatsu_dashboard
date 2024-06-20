@@ -8,7 +8,7 @@
       <%= link_to t('app.title'), '/', class: "text-2xl font-bold text-left" %>
     <% end%>
   </div>
-  <div class="md:flex h-16 items-center justify-center hidden md:inline-block">
+  <div class="lg:flex h-16 items-center justify-center hidden lg:inline-block">
     <% unless logged_in? %>
       <%= link_to signin_path, class: 'flex items-center h-full font-semibold px-4 hover:bg-pink-300' do %>
         <i class="fa-solid fa-right-to-bracket mx-1"></i>
@@ -33,10 +33,10 @@
       <%= simple_format 'お問い合わせ' %>
     <% end %>
   </div>
-  <nav class="flex space-x-4 md:hidden">
+  <nav class="flex space-x-4 lg:hidden">
     <div class="relative group">
       <button class="text-white hover:text-cyan-100 text-xl focus:outline-none">
-        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-bars mx-2"></i>
       </button>
       <div class="absolute right-0 hidden mt-2 w-48 bg-white rounded-md shadow-xl divide-y divide-gray-200 group-hover:block">
         <% unless logged_in? %>
