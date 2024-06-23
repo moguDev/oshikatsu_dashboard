@@ -16,7 +16,7 @@ class HomeController < ApplicationController
     @items_in_future = @items.where('start_date >= ?', @today)
     @items_in_past = @items.where('start_date < ?', @today)
     @next_item = @items.where('start_date >= ?', @today).order(:start_date).first
-    @today_items = @items.where('start_date >= ? AND end_date <= ?', @today, @today)
+    @today_items = @items.where('start_date <= ? AND end_date >= ?', @today, @today)
     @liked_count = 0
     @items.each { |item| @liked_count += Good.where(item_id: item.id).count }
     @oshi = Item.where(user_id: current_user.id).group(:oshi).order('count_all DESC').limit(3).count
