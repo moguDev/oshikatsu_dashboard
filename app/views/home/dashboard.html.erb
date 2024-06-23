@@ -63,7 +63,7 @@
       <div class="pb-1 rounded-2xl bg-pink-50">
         <div class="flex items-center p-2 text-pink-600">
           <% if @next_item.present? %>
-            <% if @next_item.start_date - @today <= 0 %>
+            <% if @today_items.present? %>
               <div class="flex items-center bg-pink-500 p-3 rounded-xl w-full">
                 <%= simple_format '今日は推し活当日です！今日も最高の1日にしましょう！', class: "flex-grow text-white font-semibold text-center" %>
               </div>
